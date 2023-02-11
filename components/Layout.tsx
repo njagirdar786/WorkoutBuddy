@@ -1,54 +1,94 @@
-import { AppShell, createStyles } from "@mantine/core";
-import React from "react";
-//import { Dots } from "../Dots";
-//import { FooterResponsive } from "./FooterResponsive";
-//import { NavbarHeader } from "./NavbarHeader";
+import {
+  AppShell,
+  Navbar,
+  Header,
+  Text,
+  MediaQuery,
+  Burger,
+  useMantineTheme,
+  Space,
+  Title,
+  Button,
+} from "@mantine/core";
+import { useState } from "react";
 
-const useStyles = createStyles((theme) => ({
-  dots: {
-    position: "fixed",
-    zIndex: -1,
-    color:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[5]
-        : theme.colors.gray[1],
 
-    "@media (max-width: 755px)": {
-      display: "none",
-    },
-  },
 
-  dotsLeft: {
-    left: 0,
-    top: 0,
-  },
 
-}));
+
 
 function Layout({ children }: any) {
-  const { classes } = useStyles();
+  const theme = useMantineTheme();
+  const [opened, setOpened] = useState(false);
   return (
     <>
       <AppShell 
-        //header={<NavbarHeader />} 
-        //footer={<FooterResponsive />} 
-        styles={{
-        main:{
-          padding: 0,
-          minHeight: "80vh",
+        // styles={{
+        //   main: {
+        //     transition: "0.4s",
+        //     background:
+        //       theme.colorScheme === "dark"
+        //         ? theme.colors.dark[9]
+        //         : theme.colors.violet[0],
+        //   },
+        // }}
+        navbarOffsetBreakpoint="sm"
+        asideOffsetBreakpoint="sm"
+        fixed
+        navbar={
+          <Navbar
+            style={{
+              borderRadius: 0,
+            }}
+            p="md"
+            hiddenBreakpoint="sm"
+            hidden={!opened}
+            width={{ sm: 180, lg: 280 }}
+          >
+            <Navbar.Section grow mt="md">
+              nav links
+            </Navbar.Section>
+          </Navbar>
         }
-      }}>
-      {/* <Dots className={classes.dots} style={{ left: 260, top: 300 }} />
-      <Dots className={classes.dots} style={{ right: 260, top: 200 }} />
-      <Dots className={classes.dots} style={{ left: 0, top: 140 }} />
-      <Dots className={classes.dots} style={{ right: 0, top: 60 }} />
-      <Dots className={classes.dots} style={{ left: 80, bottom: 60 }} />
-      <Dots className={classes.dots} style={{ right: 220, top: 300 }} />
-      <Dots className={classes.dots} style={{ right: 60, bottom: 60 }} /> */}
-        {/* <NavbarHeader /> */}
+        header={
+          <Header height={70} p="md">
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                height: "100%",
+              }}
+            >
+              <MediaQuery largerThan="sm" styles={{ display: "none" }}>
+                <Burger
+                  opened={opened}
+                  onClick={() => setOpened((o) => !o)}
+                  size="sm"
+                  color={theme.colors.gray[6]}
+                  mr="xl"
+                />
+              </MediaQuery>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <Title order={2}>
+                  Workout Buddy 🏋️‍♀️
+                </Title>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center"
+                }}
+              >
+                <Space w={"lg"} />
+                
+              </div>
+            </div>
+          </Header>
+        }
+      >
         {children}
       </AppShell>
-      {/* <FooterResponsive /> */}
     </>
   );
 }
