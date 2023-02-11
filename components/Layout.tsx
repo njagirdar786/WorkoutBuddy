@@ -12,17 +12,12 @@ import {
 } from "@mantine/core";
 import { useState } from "react";
 
-
-
-
-
-
 function Layout({ children }: any) {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
   return (
     <>
-      <AppShell 
+      <AppShell
         styles={{
           main: {
             transition: "0.4s",
@@ -70,18 +65,7 @@ function Layout({ children }: any) {
                 />
               </MediaQuery>
               <div style={{ display: "flex", alignItems: "center" }}>
-                <Title order={2}>
-                  Workout Buddy 🏋️‍♀️
-                </Title>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center"
-                }}
-              >
-                <Space w={"lg"} />
-                
+                <Title order={2}>Workout Buddy 🏋️‍♀️</Title>
               </div>
             </div>
           </Header>
