@@ -1,10 +1,22 @@
-import { Button, Group } from "@mantine/core";
-import WorkoutsHolder from "../components/WorkoutsHolder";
-
+import { Paper, Space, Title, } from "@mantine/core";
 
 export default function IndexPage() {
   return (
-    
-      <WorkoutsHolder />
+    <>
+    <Paper shadow="sm" p="lg" radius="lg" withBorder={true}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignContent: "center",
+        }}
+      >
+        <Title order={3}>Your Workouts 💪</Title>
+        +
+      </div>
+      <Space h="lg" />
+      
+    </Paper>
+    </>
   );
 }
