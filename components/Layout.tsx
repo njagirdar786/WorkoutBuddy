@@ -23,15 +23,15 @@ function Layout({ children }: any) {
   return (
     <>
       <AppShell 
-        // styles={{
-        //   main: {
-        //     transition: "0.4s",
-        //     background:
-        //       theme.colorScheme === "dark"
-        //         ? theme.colors.dark[9]
-        //         : theme.colors.violet[0],
-        //   },
-        // }}
+        styles={{
+          main: {
+            transition: "0.4s",
+            background:
+              theme.colorScheme === "dark"
+                ? theme.colors.dark[9]
+                : theme.colors.violet[0],
+          },
+        }}
         navbarOffsetBreakpoint="sm"
         asideOffsetBreakpoint="sm"
         fixed
