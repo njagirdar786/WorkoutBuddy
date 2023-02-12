@@ -23,7 +23,7 @@ function WorkoutCard({ workout, id }: any) {
       <Title order={3}>{workout.title}</Title>
       <Space h={"xs"} />
       <Text color="cyan" weight={700}>Load (kg): {workout.reps}</Text>
-      <Text color="pink" weight={700}>Reps: {workout.sets}</Text>
+      <Text color="pink" weight={700}>Sets: {workout.sets}</Text>
       <Text color="purple" weight={700}>Reps: {workout.load}</Text>
       <Button.Group>
         <Button size="sm" variant="outline" color="cyan" fullWidth mt="md" radius="lg" style={{ transition: "0.3s" }} onClick={() => {handleUpdate(id)}}>Update</Button>

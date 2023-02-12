@@ -1,6 +1,7 @@
 import { Grid, Paper, Space, Title, } from "@mantine/core";
 import { collection } from 'firebase/firestore';
 import { useCollection } from 'react-firebase-hooks/firestore';
+import Create from "../components/Create";
 import WorkoutCard from "../components/WorkoutCard";
 import { db } from "../firebase/firebase"
 
@@ -24,7 +25,7 @@ export default function IndexPage() {
         }}
       >
         <Title order={3}>Your Workouts 💪</Title>
-        +
+        <Create />
       </div>
       <Space h="lg" />
         {error && <strong>Error: {JSON.stringify(error)}</strong>}
