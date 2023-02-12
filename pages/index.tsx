@@ -1,4 +1,4 @@
-import { Card, Grid, Paper, Space, Title, } from "@mantine/core";
+import { Grid, Paper, Space, Title, } from "@mantine/core";
 import { collection } from 'firebase/firestore';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import WorkoutCard from "../components/WorkoutCard";
@@ -33,7 +33,7 @@ export default function IndexPage() {
         <Grid justify="center">
         {workouts && workouts.docs.map((doc) => (
             <Grid.Col key={doc.id} style={{ maxWidth: 425, minWidth: 250}} sm={3} xs={4}>
-            <WorkoutCard key={doc.id} workout={doc.data()} />
+            <WorkoutCard key={doc.id} workout={doc.data()} id={doc.id}/>
             </Grid.Col>
           ))}
       </Grid>
