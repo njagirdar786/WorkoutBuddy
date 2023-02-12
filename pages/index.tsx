@@ -1,11 +1,12 @@
-import { Card, Paper, Space, Title, } from "@mantine/core";
+import { Card, Grid, Paper, Space, Title, } from "@mantine/core";
 import { collection } from 'firebase/firestore';
 import { useCollection } from 'react-firebase-hooks/firestore';
+import WorkoutCard from "../components/WorkoutCard";
 import { db } from "../firebase/firebase"
 
 export default function IndexPage() {
 
-  const [value, loading, error] = useCollection(
+  const [workouts, loading, error] = useCollection(
     collection(db, 'workouts'),
     {
       snapshotListenOptions: { includeMetadataChanges: true },
@@ -28,16 +29,14 @@ export default function IndexPage() {
       <Space h="lg" />
         {error && <strong>Error: {JSON.stringify(error)}</strong>}
         {loading && <span>Collection: Loading...</span>}
-        {value && (
-          <span>
-            Collection:{' '}
-            {value.docs.map((doc) => (
-              <Card key={doc.id}>
-                {JSON.stringify(doc.data())},{' '}
-              </Card>
-            ))}
-          </span>
-        )}
+
+        <Grid justify="center">
+        {workouts && workouts.docs.map((doc) => (
+            <Grid.Col key={doc.id} style={{ maxWidth: 425, minWidth: 250}} sm={3} xs={4}>
+            <WorkoutCard key={doc.id} workout={doc.data()} />
+            </Grid.Col>
+          ))}
+      </Grid>
     </Paper>
     </>
   );
