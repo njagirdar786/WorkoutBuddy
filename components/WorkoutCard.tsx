@@ -7,7 +7,7 @@ function WorkoutCard({ workout, id }: any) {
 
   async function handleDelete(id:any){
      const workoutDoc = doc(db, "workouts", id)
-     deleteDoc(workoutDoc)
+     await deleteDoc(workoutDoc)
     //alert(id)
   }
 
