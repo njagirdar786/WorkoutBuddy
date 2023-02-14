@@ -33,9 +33,9 @@ function Create() {
         {/* Modal content */}  
         <form>
             <TextInput required label="Workout Title:" onChange={(e) => setTitle(e.target.value)} />
-            <NumberInput label="Load (kg):" onChange={(e:any) => setLoad(e)} />
-            <NumberInput label="Sets:" onChange={(e:any) => setSets(e)} />
-            <NumberInput label="Reps:" onChange={(e:any) => setReps(e)} />
+            <NumberInput  label="Load (kg):" value={load} onChange={(e:any) => setLoad(e)} />
+            <NumberInput  label="Sets:" value={sets} onChange={(e:any) => setSets(e)} />
+            <NumberInput  label="Reps:" value={reps} onChange={(e:any) => setReps(e)} />
             <Button size="sm" variant="light" color="cyan" fullWidth mt="md" radius="md" style={{ transition: "0.3s" }} onClick={addWorkout}>Add Workout</Button>
         </form>
       </Modal>
