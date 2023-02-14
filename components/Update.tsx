@@ -6,10 +6,10 @@ import { db } from "../firebase/firebase";
 function Update({ workout, id }: any) {
   const [opened, setOpened] = useState(false);
 
-  const [title, setTitle] = useState("");
-  const [load, setLoad] = useState(0);
-  const [sets, setSets] = useState(0);
-  const [reps, setReps] = useState(0);
+  const [title, setTitle] = useState(workout.title);
+  const [load, setLoad] = useState(workout.load);
+  const [sets, setSets] = useState(workout.sets);
+  const [reps, setReps] = useState(workout.reps);
 
   async function updateWorkout(id: any) {
     setOpened(false);
