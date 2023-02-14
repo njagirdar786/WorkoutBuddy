@@ -11,6 +11,8 @@ import {
   Button,
 } from "@mantine/core";
 import { useState } from "react";
+import { ColorSchemeToggle } from "./ColorSchemeToggle";
+import NavLinks from "./NavLinks";
 
 function Layout({ children }: any) {
   const theme = useMantineTheme();
@@ -41,7 +43,7 @@ function Layout({ children }: any) {
             width={{ sm: 180, lg: 280 }}
           >
             <Navbar.Section grow mt="md">
-              nav links
+              <NavLinks />
             </Navbar.Section>
           </Navbar>
         }
@@ -66,6 +68,16 @@ function Layout({ children }: any) {
               </MediaQuery>
               <div style={{ display: "flex", alignItems: "center" }}>
                 <Title order={2}>Workout Buddy 🏋️‍♀️</Title>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  alignContent: "center"
+                }}
+              >
+                <Space w={"lg"} />
+                <ColorSchemeToggle />
               </div>
             </div>
           </Header>
