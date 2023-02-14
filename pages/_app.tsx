@@ -21,7 +21,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   return (
     <>
       <Head>
-        <title>Page title</title>
+        <title>Workout Buddy 🏋️‍♀️</title>
         <link rel="shortcut icon" href="/favicon.svg" />
         <meta
           name="viewport"
